@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="adapter"
+            type="com.sathish.pmapp.taskdetails.CommentAdapter" />
+
+        <variable
+            name="onClickListener"
+            type="android.view.View.OnClickListener" />
+        <variable
+            name="viewmodel"
+            type="com.sathish.pmapp.taskdetails.TaskDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimaryDark"
+            android:minHeight="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent"
+            app:title="@string/str_taskDetails"
+            app:titleTextColor="@android:color/white"
+            app:navigationIcon="@drawable/ic_arrow_back_white">
+
+
+            <ImageButton
+                android:id="@+id/btn_update"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:background="@drawable/ic_baseline_edit_24"
+                android:contentDescription="@string/str_taskDetails"
+                android:onClick="@{onClickListener}"
+                android:text="@string/str_update"
+                android:padding="10dp"
+                android:layout_marginStart="180dp">
+
+            </ImageButton>
+
+
+        </androidx.appcompat.widget.Toolbar>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:fillViewport="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintVertical_bias="1.0">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gL_left_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.02" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/gL_right_margin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.98" />
+
+
+                <TextView
+                    android:id="@+id/txtView_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/str_task_name"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/gL_left_margin"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <EditText
+                    android:id="@+id/edtView_taskName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:enabled="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtView_name"
+                    app:layout_constraintEnd_toEndOf="@id/gL_right_margin"
+                    app:layout_constraintStart_toEndOf="@+id/txtView_name"
+                    app:layout_constraintTop_toTopOf="@+id/txtView_name" />
+
+                <TextView
+                    android:id="@+id/txtView_desc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/str_description"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/gL_left_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/edtView_taskName" />
+
+                <EditText
+                    android:id="@+id/edtView_taskDesc"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="10dp"
+                    android:maxLines="3"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:enabled="false"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtView_desc"
+                    app:layout_constraintEnd_toEndOf="@id/gL_right_margin"
+                    app:layout_constraintStart_toEndOf="@+id/txtView_desc"
+                    app:layout_constraintTop_toTopOf="@+id/txtView_desc" />
+
+                <TextView
+                    android:id="@+id/txtView_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/str_creation_date"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/gL_left_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/edtView_taskDesc" />
+
+
+                <TextView
+                    android:id="@+id/txtView_taskDate"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtView_date"
+                    app:layout_constraintEnd_toEndOf="@id/gL_right_margin"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/txtView_date"
+                    app:layout_constraintTop_toTopOf="@+id/txtView_date" />
+
+                <TextView
+                    android:id="@+id/txtView_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:text="@string/str_status"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toEndOf="@+id/gL_left_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/txtView_taskDate" />
+
+                <TextView
+                    android:id="@+id/txtView_taskStatus"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:maxLines="1"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="@+id/txtView_status"
+                    app:layout_constraintEnd_toEndOf="@id/gL_right_margin"
+                    app:layout_constraintStart_toEndOf="@+id/txtView_status"
+                    app:layout_constraintTop_toTopOf="@+id/txtView_status" />
+
+
+                <EditText
+                    android:id="@+id/edtView_taskComment"
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="12dp"
+                    android:gravity="top"
+                    android:hint="@string/str_comment"
+                    android:textColorHint="@color/color_black"
+                    android:maxLines="5"
+                    android:singleLine="true"
+                    android:textColor="@color/color_black"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:text="@={viewmodel.commentStr}"
+                    app:layout_constraintEnd_toEndOf="@id/gL_right_margin"
+                    app:layout_constraintStart_toEndOf="@+id/gL_left_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/txtView_taskStatus" />
+
+
+                <Button
+                    android:id="@+id/btn_SendQA"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    app:layout_constraintStart_toEndOf="@id/gL_left_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/edtView_taskComment"
+                    android:onClick="@{() -> viewmodel.sendTaskToQA()}"
+                    android:text="@string/str_send_to_qa">
+
+                </Button>
+
+                  <ImageButton
+                      android:id="@+id/imgBtn_CommentSave"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:contentDescription="@string/str_comment"
+                      android:background="@drawable/ic_comment_save"
+                      app:layout_constraintEnd_toStartOf="@id/gL_right_margin"
+                      app:layout_constraintTop_toBottomOf="@+id/edtView_taskComment"
+                      android:visibility="gone"
+                      android:onClick="@{() -> viewmodel.saveComment()}">
+
+                  </ImageButton>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rcyVw_project_list"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginTop="35dp"
+                    android:layout_marginBottom="5dp"
+                    android:scrollbars="vertical"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@id/gL_right_margin"
+                    app:layout_constraintStart_toStartOf="@id/gL_left_margin"
+                    app:layout_constraintTop_toBottomOf="@+id/edtView_taskComment"
+                    tools:listitem="@layout/comment_items"
+                    app:adapter= "@{adapter}"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

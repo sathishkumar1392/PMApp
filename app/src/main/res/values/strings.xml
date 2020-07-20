@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">PMApp</string>
+    <string name="str_Project">Project</string>
+    <string name="str_prjDesc">Project Description</string>
+    <string name="str_save">Save</string>
+    <string name="str_addProject">Add Project</string>
+    <string name="str_error_status_valid">cannot not save empty project</string>
+    <string name="str_prjList">Project List</string>
+    <string name="str_taskList">Task List</string>
+    <string name="str_addTask">Add Task</string>
+    <string name="str_task_tittle">Task Name</string>
+    <string name="str_task_description">Task Description </string>
+    <string name="str_comments">Comments</string>
+    <string name="str_error_task">Cannot save empty task</string>
+    <string name="str_task_name">Task Name :</string>
+    <string name="str_description">Description :</string>
+    <string name="str_creation_date">Creation Date : </string>
+    <string name="str_status">Status :</string>
+    <string name="str_comment">Comment</string>
+    <string name="str_taskDetails">Task Details</string>
+    <string name="str_update">Update</string>
+    <string name="str_success_status_project">Project Created</string>
+    <string name="str_success_status_task">Task Created</string>
+    <string name="str_update_status_task">Task Updated</string>
+    <string name="str_comment_status"> Comment Added</string>
+    <string name="str_task_qa"> Task updated  to QA</string>
+    <string name="str_task_review"> Task already in Review Status</string>
+    <string name="str_send_to_qa">Send to QA</string>
+</resources>

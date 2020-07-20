@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_welcome"
+    app:startDestination="@id/project">
+
+
+    <fragment
+        android:id="@+id/project"
+        android:name="com.sathish.pmapp.project.ProjectFragment"
+        android:label="Project"
+        tools:layout="@layout/project_fragment">
+
+        <action
+            android:id="@+id/action_toTask"
+            app:destination="@+id/task" />
+
+
+        <action
+            android:id="@+id/action_addProject"
+            app:destination="@+id/addProject" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addProject"
+        android:name="com.sathish.pmapp.project.AddProjectFragment"
+        android:label="AddProject"
+        tools:layout="@layout/add_project_fragment">
+
+        <action
+            android:id="@+id/action_saveProject"
+            app:destination="@+id/project"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/project"
+            app:popUpToInclusive="true" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/task"
+        android:name="com.sathish.pmapp.task.TaskFragment"
+        android:label="Task"
+        tools:layout="@layout/task_fragment">
+
+
+        <argument
+            android:name="Id"
+            android:defaultValue="0"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_taskDetail"
+            app:destination="@+id/taskDetail" />
+
+        <action
+            android:id="@+id/action_addTask"
+            app:destination="@+id/addTask" />
+
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/addTask"
+        android:name="com.sathish.pmapp.task.AddTaskFragment"
+        android:label="Add Task"
+        tools:layout="@layout/add_task_fragment">
+
+        <argument
+            android:name="id"
+            app:argType="integer" />
+
+        <action
+            android:id="@+id/action_task"
+            app:destination="@+id/task"
+            app:launchSingleTop="true"
+            app:popUpTo="@id/task"
+            app:popUpToInclusive="true" />
+
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/taskDetail"
+        android:name="com.sathish.pmapp.taskdetails.TaskDetailFragment"
+        android:label="TaskDetails"
+        tools:layout="@layout/task_detail_fragment">
+
+
+        <action
+            android:id="@+id/action_toTaskList"
+            app:popUpTo="@+id/task">
+
+        </action>
+
+        <argument
+            android:name="taskName"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="taskDesc"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="taskDate"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+        <argument
+            android:name="taskId"
+            app:argType="integer" />
+
+        <argument
+            android:name="prjReferenceId"
+            app:argType="integer" />
+
+        <argument
+            android:name="taskStatus"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+
+    </fragment>
+
+
+</navigation>
