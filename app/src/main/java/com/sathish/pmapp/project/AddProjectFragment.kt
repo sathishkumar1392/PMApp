@@ -19,7 +19,7 @@ class AddProjectFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = AddProjectFragmentBinding.inflate(inflater, container, false)
         binding.viewModel =  viewModel
         setObserver()
@@ -34,11 +34,11 @@ class AddProjectFragment : BaseFragment() {
     }
 
     private fun setObserver() {
-        viewModel.errorMessage.observe(viewLifecycleOwner, Observer{
+        viewModel.errorMessage.observe(viewLifecycleOwner, {
              showMessage(it)
         })
 
-        viewModel.successMessage.observe(viewLifecycleOwner, Observer {
+        viewModel.successMessage.observe(viewLifecycleOwner,  {
             showMessage(it)
             hideKeyBoard()
             screenNavigate()
