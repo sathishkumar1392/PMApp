@@ -33,7 +33,7 @@ class TaskDetailFragment : BaseFragment() {
         binding = TaskDetailFragmentBinding.inflate(inflater, container, false)
         binding.adapter = adapter
         binding.viewmodel = viewModel
-        mappingData(args)
+        //mappingData(args)
         setObserver()
         return binding.root
     }
