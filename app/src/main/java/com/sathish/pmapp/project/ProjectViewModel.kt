@@ -11,7 +11,7 @@ class ProjectViewModel(
 
 ) : ViewModel() {
 
-    var allProjects: LiveData<List<Project>> = MutableLiveData<List<Project>>()
+    var allProjects: LiveData<List<Project>> = MutableLiveData()
 
     init {
         getAllProject()
