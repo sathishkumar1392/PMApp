@@ -20,7 +20,7 @@ class TaskDetailViewModel(private val repo: TaskRepository, private val resource
 
     var taskId = 0
     val commentStr = MutableLiveData<String>()
-    var allComments: LiveData<List<Comment>> = MutableLiveData<List<Comment>>()
+    var allComments: LiveData<List<Comment>> = MutableLiveData()
     var taskStatus: String? = null
 
 

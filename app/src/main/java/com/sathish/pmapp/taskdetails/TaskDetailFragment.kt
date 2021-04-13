@@ -38,11 +38,11 @@ class TaskDetailFragment : BaseFragment() {
     }
 
     private fun setObserver() {
-        viewModel.allComments.observe(viewLifecycleOwner,  {
+        viewModel.allComments.observe(viewLifecycleOwner, {
             adapter.update(it as ArrayList<Comment>)
         })
 
-        viewModel.successMessage.observe(viewLifecycleOwner,  {
+        viewModel.successMessage.observe(viewLifecycleOwner, {
             when (it) {
                 getString(R.string.str_update_status_task) -> {
                     showMessage(it)
@@ -65,7 +65,7 @@ class TaskDetailFragment : BaseFragment() {
             }
         })
 
-        viewModel.errorMessage.observe(viewLifecycleOwner,{
+        viewModel.errorMessage.observe(viewLifecycleOwner, {
             showMessage(it)
         })
 
