@@ -29,7 +29,7 @@ class TaskDetailFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = TaskDetailFragmentBinding.inflate(inflater, container, false)
         binding.adapter = adapter
         binding.viewmodel = viewModel
@@ -39,11 +39,11 @@ class TaskDetailFragment : BaseFragment() {
     }
 
     private fun setObserver() {
-        viewModel.allComments.observe(viewLifecycleOwner, Observer {
+        viewModel.allComments.observe(viewLifecycleOwner,  {
             adapter.update(it as ArrayList<Comment>)
         })
 
-        viewModel.successMessage.observe(viewLifecycleOwner, Observer {
+        viewModel.successMessage.observe(viewLifecycleOwner,  {
             when (it) {
                 getString(R.string.str_update_status_task) -> {
                     showMessage(it)
@@ -66,7 +66,7 @@ class TaskDetailFragment : BaseFragment() {
             }
         })
 
-        viewModel.errorMessage.observe(viewLifecycleOwner, Observer {
+        viewModel.errorMessage.observe(viewLifecycleOwner,{
             showMessage(it)
         })
 
