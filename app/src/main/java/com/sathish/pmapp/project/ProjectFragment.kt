@@ -36,7 +36,7 @@ class ProjectFragment : BaseFragment() {
     }
 
     private fun setObserver() {
-        viewModel.allProjects.observe(viewLifecycleOwner, Observer {
+        viewModel.allProjects.observe(viewLifecycleOwner,  {
             adapter.update(it as ArrayList<Project>)
         })
     }
