@@ -65,6 +65,4 @@ class TaskDetailViewModel(private val repo: TaskRepository, private val resource
         val formatted = current.format(formatter)
         return formatted.toString()
     }
-
-
 }

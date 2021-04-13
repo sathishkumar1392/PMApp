@@ -48,7 +48,7 @@ class AddTaskViewModel(private var repo: TaskRepository, private val resource: R
 
 
       @SuppressLint("NewApi")
-      private fun getCurrentDate(): String? {
+      private fun getCurrentDate(): String {
           val current = LocalDateTime.now()
           val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss.SSS")
           val formatted = current.format(formatter)

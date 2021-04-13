@@ -21,6 +21,4 @@ class ProjectViewModel(
     private fun getAllProject() {
         allProjects = repository.allProjects
     }
-
-
 }

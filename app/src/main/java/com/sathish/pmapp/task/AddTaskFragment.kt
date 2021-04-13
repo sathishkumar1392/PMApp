@@ -23,7 +23,7 @@ class AddTaskFragment : BaseFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = AddTaskFragmentBinding.inflate(inflater, container, false)
         binding.viewModel = viewModel
         setObserver()

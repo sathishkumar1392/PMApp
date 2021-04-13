@@ -58,8 +58,6 @@ class AddProjectFragment : BaseFragment() {
         binding.editTextProject.text.clear()
         binding.editTextDescription.text.clear()
     }
-
-
 }
 
 

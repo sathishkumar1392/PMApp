@@ -24,7 +24,7 @@ class TaskFragment : BaseFragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = TaskFragmentBinding.inflate(inflater, container, false)
         binding.adapter = adapter
         setObserver()

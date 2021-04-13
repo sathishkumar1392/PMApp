@@ -33,7 +33,7 @@ class TaskDetailFragment : BaseFragment() {
         binding = TaskDetailFragmentBinding.inflate(inflater, container, false)
         binding.adapter = adapter
         binding.viewmodel = viewModel
-        mappingData(args)
+        //mappingData(args)
         setObserver()
         return binding.root
     }
@@ -95,7 +95,7 @@ class TaskDetailFragment : BaseFragment() {
 
 
     private fun iconVisibility() {
-        binding.edtViewTaskComment.doOnTextChanged { text, start, before, count ->
+        binding.edtViewTaskComment.doOnTextChanged { text, _, _, _ ->
             if (text!!.isNotEmpty()) {
                 binding.imgBtnCommentSave.visibility = View.VISIBLE
 
